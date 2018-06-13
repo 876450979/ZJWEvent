@@ -34,7 +34,8 @@ class ViewController: UIViewController {
     }
     
     @objc func clickAddEvent() {
-        createEventCalendarTitle(title: "团油宝", location: "1000元", startDate: Date(timeIntervalSince1970: 1528863915), endDate: Date(timeIntervalSince1970: 1528867711), allDay: false, alarmArray: ["-60"])
+        //开始时间和结束时间  传后台给你的时间戳
+        createEventCalendarTitle(title: "日历提醒标题测试", location: "北京市北京市北京市", startDate: Date(timeIntervalSince1970: 1528863915), endDate: Date(timeIntervalSince1970: 1528867711), allDay: false, alarmArray: ["-60"])
     }
     
     @objc func clickRemoveEvent() {
@@ -51,7 +52,7 @@ class ViewController: UIViewController {
      *  @param startDate  开始时间
      *  @param endDate    结束时间
      *  @param allDay     是否全天
-     *  @param alarmArray 闹钟集合
+     *  @param alarmArray 闹钟集合(最多传两个 秒)
      */
     func createEventCalendarTitle(title: String, location: String, startDate: Date, endDate: Date, allDay: Bool, alarmArray: Array<String>) {
         
@@ -119,7 +120,7 @@ class ViewController: UIViewController {
                         try EventCalendar.eventStore.save(event, span: EKSpan.thisEvent)
                     }catch{}
                     
-                    print("事件ID--\(event.eventIdentifier)")  //系统随机生成的,需要保存下来,下次删除使用
+                    print("事件ID--\(event.eventIdentifier)")  //(只读)系统随机生成的,需要保存下来,下次删除使用
                     self.eventId = event.eventIdentifier  //保存本次事件id   可以通过后台返回的id做这次保存的key值,偏好设置保存
                     print("成功添加到系统日历中")
                 }
