@@ -60,11 +60,11 @@ class ViewController: UIViewController {
                 
                 //用户没授权
                 if !granted {
-                    let alertViewController = UIAlertController(title: "提示", message: "请在iPhone的\"设置->隐私->日历\"选项中,允许团油宝访问你的日历。", preferredStyle: .alert)
+                    let alertViewController = UIAlertController(title: "提示", message: "请在iPhone的\"设置->隐私->日历\"选项中,允许***访问你的日历。", preferredStyle: .alert)
                     let actionCancel = UIAlertAction(title: "取消", style: .cancel, handler: { (action) in
                     })
                     let actinSure = UIAlertAction(title: "设置", style: .default, handler: { (action) in
-                        //跳转到团油宝系统设置主页
+                        //跳转到系统设置主页
                         if let url = URL(string: UIApplicationOpenSettingsURLString) {
                             //根据iOS系统版本，分别处理
                             if #available(iOS 10, *) {
